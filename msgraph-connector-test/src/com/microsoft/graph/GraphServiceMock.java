@@ -35,7 +35,7 @@ public class GraphServiceMock
   {
     return load("json/me.json");
   }
-  
+
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("me/messages")
@@ -43,25 +43,26 @@ public class GraphServiceMock
   {
     return load("json/messages.json");
   }
-  
+
   @GET
   @Path("users/{user-id}/calendar/calendarView")
   @Produces(MediaType.APPLICATION_JSON)
   public Response createEnvelope(
     @PathParam("user-id") String userId,
-    @QueryParam("startDateTime") String start, 
+    @QueryParam("startDateTime") String start,
     @QueryParam("endDateTime") String end)
   {
     return Response.status(200)
       .entity(load("json/calendarView.json"))
       .build();
   }
-  
+
   @POST
   @Path("me/microsoft.graph.sendMail")
   @Consumes(MediaType.APPLICATION_JSON)
   public Response sendMail(JsonNode json)
   {
+    System.out.println("hello. \nsend mail was called in the graph service mock \nles go");
     String mailSubject = json.get("Message").get("subject").asText();
     String expect = "Meet for Lunch?";
     if (!Objects.equal(mailSubject, expect))
@@ -72,7 +73,7 @@ public class GraphServiceMock
     }
     return Response.status(202).build();
   }
-  
+
   @POST
   @Path("me/microsoft.graph.findMeetingTimes")
   @Consumes(MediaType.APPLICATION_JSON)
@@ -83,7 +84,7 @@ public class GraphServiceMock
       .entity(load("json/suggestMeeting.json"))
       .build();
   }
-  
+
   @POST
   @Path("users/{user-id}/calendar/events")
   @Consumes(MediaType.APPLICATION_JSON)
@@ -95,7 +96,7 @@ public class GraphServiceMock
       .header("userId", userId)
       .build();
   }
-  
+
   @GET
   @Path("me/todo/lists")
   @Produces(MediaType.APPLICATION_JSON)
@@ -105,7 +106,7 @@ public class GraphServiceMock
       .entity(load("json/toDoLists.json"))
       .build();
   }
-  
+
   @GET
   @Path("me/todo/lists/{list-id}/tasks")
   @Produces(MediaType.APPLICATION_JSON)
@@ -116,7 +117,7 @@ public class GraphServiceMock
       .header("list-id", id)
       .build();
   }
-  
+
   @POST
   @Path("me/todo/lists/{list-id}/tasks")
   @Produces(MediaType.APPLICATION_JSON)
@@ -128,7 +129,7 @@ public class GraphServiceMock
       .header("id", id)
       .build();
   }
-  
+
   private static String load(String path)
   {
     try(InputStream is = GraphServiceMock.class.getResourceAsStream(path))

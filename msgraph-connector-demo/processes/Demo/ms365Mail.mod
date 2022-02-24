@@ -60,6 +60,8 @@ ml0 f3 path /me/messages #txt
 ml0 f3 resultType com.microsoft.graph.CollectionOfMessage #txt
 ml0 f3 responseMapping 'out.mails=result.value;
 ' #txt
+ml0 f3 responseCode '
+' #txt
 ml0 f3 clientErrorCode ivy:error:rest:client #txt
 ml0 f3 statusErrorCode ivy:error:rest:client #txt
 ml0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

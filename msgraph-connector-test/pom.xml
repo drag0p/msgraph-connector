@@ -25,14 +25,20 @@
       <version>9.3.0</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.axonivy.connector.office365</groupId>
+      <artifactId>msgraph-connector-demo</artifactId>
+      <version>${project.version}</version>
+      <type>iar</type>
+    </dependency>
   </dependencies>
   <pluginRepositories>
     <pluginRepository>
-      <id>sonatype</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
       <snapshots>
         <updatePolicy>always</updatePolicy>
       </snapshots>
+      <id>sonatype</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </pluginRepository>
   </pluginRepositories>
   <build>

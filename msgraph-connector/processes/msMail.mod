@@ -71,6 +71,8 @@ ml0 f6 bodyObjectType com.microsoft.graph.MeMicrosoftGraphSendMailBody #txt
 ml0 f6 bodyObjectMapping 'param.message=in.message;
 param.saveToSentItems=true;
 ' #txt
+ml0 f6 clientErrorCode ivy:error:rest:client #txt
+ml0 f6 statusErrorCode ivy:error:rest:client #txt
 ml0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
