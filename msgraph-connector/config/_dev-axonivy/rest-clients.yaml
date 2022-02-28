@@ -6,7 +6,6 @@ RestClients:
     Icon: res:/webContent/icons/microsoft.png
     Features:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
-    - com.microsoft.auth.OAuth2Feature
     - ch.ivyteam.ivy.rest.client.security.CsrfHeaderFeature
     Properties:
       AUTH.appId: notmyid
